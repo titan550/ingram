@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="w3.css">
+<head>
+	<title>Vendor Rebates</title>
+</head>
+<body>
+	<div class="w3-panel w3-blue"><h1><img style="height: 15%; width: 15%" src="ingram.png">VENDOR REBATE FORM</h1></div> 
+	<form>
+		<div class="w3-cell-row">
+			<div class="w3-container w3-cell">
+				Vendor Name: <input type="text" name="rebateName">
+				<br><br>
+				Attach Rebate Form	<input type="file" name="rebateFile" accept="pdf|docx|xls|xlsx|msg">
+			</div>
+			<div class="w3-container w3-cell">
+				Start Date: <input type="date" value='2017-07-01' name="startDate">
+				<br><br>
+				End Date: <input type="date" value='2017-10-01' name="endDate">
+			</div>
+			<div class="w3-container w3-cell"><img height="30" width="30" src="Duplicate.png"><p>Duplicate This Rebate</p>
+			</div>
+		</div>
+		<div class="w3-container">
+			<hr style="border-width: 10px"><center><h2>CATEGORIES</h2></center><hr style="border-width: 10px">
+			<div class="w3-cell-row ">
+				<div class="w3-container w3-cell">
+					<div class="w3-container">
+						Category Type
+						<select name="catType">
+							<option value="vendorCode">List of Vendor Codes</option>
+							<option value="customerBranchNumber">List of Customer Branch Numbers</option>
+							<option value="skuList">List of SKUs</option>
+							<option value="mediaCode">List of Media Codes</option>
+						</select>
+					</div>
+					<br>
+					<div class="w3-container">
+						Category Name: @<input type="text" name="catName" value="Exluded Vendors">
+					</div>
+					<br>
+					<div class="w3-container">
+						Category Description: <input type="text" name="catDescription" value="This is the list of excluded vendors">
+					</div>
+				</div>
+				<div class="w3-container w3-cell">
+					List of items (separate by comman, or space or enter each in a new line):<br>
+					<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
+				</div>
+				<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png">
+					<p>
+						Add Category
+					</p>
+				</div>
+			</div>
+			<hr style="border-width: 10px">
+						<div class="w3-cell-row ">
+				<div class="w3-container w3-cell">
+					<div class="w3-container">
+						Category Type
+						<select name="catType">
+							<option value="vendorCode">List of Vendor Codes</option>
+							<option value="customerBranchNumber">List of Customer Branch Numbers</option>
+							<option value="skuList">List of SKUs</option>
+							<option value="mediaCode">List of Media Codes</option>
+						</select>
+					</div>
+					<br>
+					<div class="w3-container">
+						Category Name: @<input type="text" name="catName" value="Exluded Vendors">
+					</div>
+					<br>
+					<div class="w3-container">
+						Category Description: <input type="text" name="catDescription" value="This is the list of excluded vendors">
+					</div>
+				</div>
+				<div class="w3-container w3-cell">
+					List of items (separate by comman, or space or enter each in a new line):<br>
+					<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
+				</div>
+				<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png">
+					<p>
+						Add Category
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<hr style="border-width: 10px"><center><h2>SQL CODE FOR REBATE CALCULATION</h2></center><hr style="border-width: 10px">
+<div class="w3-container w3-cell-row">
+	<p>Please enter the SQL code here:</p>
+	<textarea name="message" rows="4" cols="120">SELECT * FROM VN_VENDORS WHERE VENDORNBR IS NOT IN ( SELECT * FROM @[Excluded Vendors] )</textarea>
+</div>
+<div class="w3-container" style="margin-bottom: 200px">
+	<input type="submit" value="Save Rebate Form">
+</div>
+</form>
+</body>
+</html>
