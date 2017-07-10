@@ -5,11 +5,11 @@
 	<title>Vendor Rebates</title>
 </head>
 <body>
-	<div class="w3-panel w3-blue"><h1><img style="height: 15%; width: 15%" src="ingram.png">VENDOR REBATE FORM</h1></div> 
+	<div class="w3-panel w3-blue"><h1><img style="height: 15%; width: 15%" src="ingram.png">  VENDOR REBATE FORM</h1></div> 
 	<form>
 		<div class="w3-cell-row">
 			<div class="w3-container w3-cell">
-				Vendor Name: <input type="text" name="rebateName">
+				Vendor Name: <input type="text" name="rebateName" value="Microsoft">
 				<br><br>
 				Attach Rebate Form	<input type="file" name="rebateFile" accept="pdf|docx|xls|xlsx|msg">
 			</div>
@@ -18,74 +18,111 @@
 				<br><br>
 				End Date: <input type="date" value='2017-10-01' name="endDate">
 			</div>
-			<div class="w3-container w3-cell"><img height="30" width="30" src="Duplicate.png"><p>Duplicate This Rebate</p>
+			<div id="barchart">
+				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+				 <script type="text/javascript">
+				      google.charts.load('current', {'packages':['bar']});
+				      google.charts.setOnLoadCallback(drawChart);
+
+				      function drawChart() {
+				        var data = google.visualization.arrayToDataTable([
+				          ['Year', 'Actual Sales', 'Forecasted', 'Profit'],
+				          ['Monitors', 1000, 400, 200],
+				          ['Printers', 1170, 460, 250],
+				          ['POS Devices', 660, 1120, 300],
+				          ['Cellphones', 1030, 540, 350]
+				        ]);
+
+				        var options = {
+				          chart: {
+				            title: 'Rebate Performance',
+				            subtitle: 'Actual Sales, Forecasted Sales and Profit',
+				          },
+				          bars: 'horizontal' // Required for Material Bar Charts.
+				        };
+
+				        var chart = new google.charts.Bar(document.getElementById('barchart'));
+
+				        chart.draw(data, google.charts.Bar.convertOptions(options));
+				      }
+				    </script>
+</div>
+<div class="w3-container w3-cell"><img height="30" width="30" src="Duplicate.png"><p>Duplicate This Rebate</p>
+</div>
+</div>
+<div class="w3-container">
+	<h3>Common Exclusions:</h3>
+	<input type="checkbox" name="vehicle" value="Bike" checked="">Tech Data  
+	<input type="checkbox" name="vehicle" value="Bike">Amazon.com  
+	<input type="checkbox" name="vehicle" value="Bike">PC Connections  
+	<input type="checkbox" name="vehicle" value="Bike" checked="">CDW  
+	<input type="checkbox" name="vehicle" value="Bike">Walmart  
+</div>
+<div class="w3-container">
+	<hr style="border-width: 10px"><center><h2>CATEGORIES</h2></center><hr style="border-width: 10px">
+	<div class="w3-cell-row ">
+		<div class="w3-container w3-cell">
+			<div class="w3-container">
+				Category Type
+				<select name="catType">
+					<option value="vendorCode">List of Vendor Codes</option>
+					<option value="customerBranchNumber">List of Customer Branch Numbers</option>
+					<option value="skuList">List of SKUs</option>
+					<option value="mediaCode">List of Media Codes</option>
+				</select>
+			</div>
+			<br>
+			<div class="w3-container">
+				Category Name: @<input type="text" name="catName" value="Exluded Vendors">
+			</div>
+			<br>
+			<div class="w3-container">
+				Category Description: <input type="text" name="catDescription" value="This is the list of excluded vendors">
 			</div>
 		</div>
-		<div class="w3-container">
-			<hr style="border-width: 10px"><center><h2>CATEGORIES</h2></center><hr style="border-width: 10px">
-			<div class="w3-cell-row ">
-				<div class="w3-container w3-cell">
-					<div class="w3-container">
-						Category Type
-						<select name="catType">
-							<option value="vendorCode">List of Vendor Codes</option>
-							<option value="customerBranchNumber">List of Customer Branch Numbers</option>
-							<option value="skuList">List of SKUs</option>
-							<option value="mediaCode">List of Media Codes</option>
-						</select>
-					</div>
-					<br>
-					<div class="w3-container">
-						Category Name: @<input type="text" name="catName" value="Exluded Vendors">
-					</div>
-					<br>
-					<div class="w3-container">
-						Category Description: <input type="text" name="catDescription" value="This is the list of excluded vendors">
-					</div>
-				</div>
-				<div class="w3-container w3-cell">
-					List of items (separate by comman, or space or enter each in a new line):<br>
-					<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
-				</div>
-				<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png">
-					<p>
-						Add Category
-					</p>
-				</div>
-			</div>
-			<hr style="border-width: 10px">
-						<div class="w3-cell-row ">
-				<div class="w3-container w3-cell">
-					<div class="w3-container">
-						Category Type
-						<select name="catType">
-							<option value="vendorCode">List of Vendor Codes</option>
-							<option value="customerBranchNumber">List of Customer Branch Numbers</option>
-							<option value="skuList">List of SKUs</option>
-							<option value="mediaCode">List of Media Codes</option>
-						</select>
-					</div>
-					<br>
-					<div class="w3-container">
-						Category Name: @<input type="text" name="catName" value="Exluded Vendors">
-					</div>
-					<br>
-					<div class="w3-container">
-						Category Description: <input type="text" name="catDescription" value="This is the list of excluded vendors">
-					</div>
-				</div>
-				<div class="w3-container w3-cell">
-					List of items (separate by comman, or space or enter each in a new line):<br>
-					<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
-				</div>
-				<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png">
-					<p>
-						Add Category
-					</p>
-				</div>
-			</div>
+		<div class="w3-container w3-cell">
+			List of items (separate by comman, or space or enter each in a new line):<br>
+			<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
+		</div>
+		<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png">
+			<p>
+				Add Category
+			</p>
 		</div>
 	</div>
+	<hr style="border-width: 10px">
+	<div class="w3-cell-row ">
+		<div class="w3-container w3-cell">
+			<div class="w3-container">
+				Category Type
+				<select name="catType">
+					<option value="vendorCode">List of Vendor Codes</option>
+					<option value="customerBranchNumber">List of Customer Branch Numbers</option>
+					<option value="skuList">List of SKUs</option>
+					<option value="mediaCode">List of Media Codes</option>
+				</select>
+			</div>
+			<br>
+			<div class="w3-container">
+				Category Name: @<input type="text" name="catName" value="Exluded Vendors">
+			</div>
+			<br>
+			<div class="w3-container">
+				Category Description: <input type="text" name="catDescription" value="This is the list of excluded vendors">
+			</div>
+		</div>
+		<div class="w3-container w3-cell">
+			List of items (separate by comman, or space or enter each in a new line):<br>
+			<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
+		</div>
+		<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png">
+			<p>
+				Add Category
+			</p>
+		</div>
+	</div>
+</div>
+</div>
 </div>
 <hr style="border-width: 10px"><center><h2>SQL CODE FOR REBATE CALCULATION</h2></center><hr style="border-width: 10px">
 <div class="w3-container w3-cell-row">
