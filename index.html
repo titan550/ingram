@@ -6,10 +6,10 @@
 </head>
 <body>
 	<div class="w3-panel w3-blue"><h1><img style="height: 15%; width: 15%" src="ingram.png">  VENDOR REBATE FORM</h1></div> 
-	<form>
+	<form class="w3-container">
 		<div class="w3-cell-row">
 			<div class="w3-container w3-cell">
-				Vendor Name: <input type="text" name="rebateName" value="Microsoft">
+				<label>Vendor Name</label><input class="w3-input w3-border" type="text" name="rebateName" value="Microsoft">
 				<br><br>
 				Attach Rebate Form	<input type="file" name="rebateFile" accept="pdf|docx|xls|xlsx|msg">
 			</div>
@@ -52,11 +52,11 @@
 		</div>
 		<div class="w3-container">
 			<h3>Common Exclusions:</h3>
-			<input type="checkbox" name="vehicle" value="Bike" checked="">Tech Data  
-			<input type="checkbox" name="vehicle" value="Bike">Amazon.com  
-			<input type="checkbox" name="vehicle" value="Bike">PC Connections  
-			<input type="checkbox" name="vehicle" value="Bike" checked="">CDW  
-			<input type="checkbox" name="vehicle" value="Bike">Walmart  
+			<input class="w3-check" type="checkbox" name="vehicle" value="Bike" checked="">Tech Data  
+			<input class="w3-check" type="checkbox" name="vehicle" value="Bike">Amazon.com  
+			<input class="w3-check" type="checkbox" name="vehicle" value="Bike">PC Connections  
+			<input class="w3-check" type="checkbox" name="vehicle" value="Bike" checked="">CDW  
+			<input class="w3-check" type="checkbox" name="vehicle" value="Bike">Walmart  
 		</div>
 		<div class="w3-container">
 			<hr style="border-width: 10px"><center><h2>CATEGORIES</h2></center><hr style="border-width: 10px">
@@ -82,13 +82,13 @@
 				</div>
 				<div class="w3-container w3-cell">
 					List of items (separate by comman, or space or enter each in a new line):<br>
-					<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
+					<textarea spellcheck="false" name="items" rows="5" cols="70">12445,88364,98746,87594798,98745,548749</textarea>
 				</div>
 				<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png"><br><input class="w3-btn" type="submit" value="Add Category">
 				</div>
 			</div>
 			<hr style="border-width: 10px">
-			<div class="w3-cell-row ">
+			<div class="w3-cell-row">
 				<div class="w3-container w3-cell">
 					<div class="w3-container">
 						Category Type
@@ -110,7 +110,7 @@
 				</div>
 				<div class="w3-container w3-cell">
 					List of items (separate by comman, or space or enter each in a new line):<br>
-					<textarea name="items" rows="5" cols="80">12445,88364,98746,87594798,98745,548749</textarea>
+					<textarea spellcheck="false" style="w3-input" name="items" rows="5" cols="70"">12445,88364,98746,87594798,98745,548749</textarea>
 				</div>
 				<div class="w3-container w3-cell"><img height="100" width="100" src="AddMore.png"><br><input class="w3-btn" type="submit" value="Add Category">
 				</div>
@@ -121,7 +121,7 @@
 <hr style="border-width: 10px"><center><h2>SQL CODE FOR REBATE CALCULATION</h2></center><hr style="border-width: 10px">
 <div class="w3-container w3-cell-row">
 	<p>Please enter the SQL code here:</p>
-	<textarea name="message" rows="4" cols="120">SELECT * FROM VN_VENDORS WHERE VENDORNBR IS NOT IN ( SELECT * FROM @[Excluded Vendors] )</textarea>
+	<textarea spellcheck="false" name="message" rows="4" cols="120">SELECT * FROM VN_VENDORS WHERE VENDORNBR IS NOT IN ( SELECT * FROM @[Excluded Vendors] )</textarea>
 </div>
 <hr style="border-width: 10px"><center><h2>AFFECTED SKUs</h2></center><hr style="border-width: 10px">
 <div class="w3-container">
@@ -130,26 +130,36 @@
 			<th>Group #</th>
 			<th>Title</th> 
 			<th>SKUs</th>
+			<th>Sales Forecast</th>
+			<th>Actual Sales</th>
 		</tr>
 		<tr>
 			<td>1</td>
 			<td>Monitors</td> 
 			<td>50343,5454,45454,465565</td>
+			<td>$2,000,000</td>
+			<td>$2,133,002</td>
 		</tr>
 		<tr>
 			<td>2</td>
 			<td>Printers</td> 
 			<td>94544,9565,245454</td>
+			<td>$62,000,000</td>
+			<td>$26,133,002</td>
 		</tr>
 		<tr>
 			<td>3</td>
 			<td>POS Devices</td> 
 			<td>95344,98883,08762</td>
+			<td>$33,000,000</td>
+			<td>$32,133,002</td>
 		</tr>
 		<tr>
 			<td>4</td>
 			<td>Cellphones</td> 
 			<td>2345,66565,94544,9565,245454</td>
+			<td>$5,000,050</td>
+			<td>$5,133,002</td>
 		</tr>
 	</table>
 </div>
